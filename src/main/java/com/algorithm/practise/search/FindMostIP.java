@@ -1,4 +1,4 @@
-package com.algorithm.lcw.stack;
+package com.algorithm.practise.search;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
