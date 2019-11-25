@@ -1,0 +1,19 @@
+# idea
+/.idea
+.iml
+
+# eclipse
+/.settings
+.project
+.classpath
+
+# maven
+/target
+
+# resources
+MANIFEST.MF
+
+# webapp
+/classes
+/lib
+rebel.xml
