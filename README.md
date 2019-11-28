@@ -1,1 +1,1 @@
-# lintcode algorithm practise
+# lintcode or leetcode algorithm practise
