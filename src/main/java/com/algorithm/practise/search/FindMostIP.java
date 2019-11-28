@@ -1,9 +1,8 @@
 package com.algorithm.practise.search;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 查找出现次数最多的IP.
@@ -11,18 +10,61 @@ import java.util.TimeZone;
  */
 public class FindMostIP {
 
-    public static void main(String[] args) {
-        Date date = new Date(System.currentTimeMillis()); // 2014-1-31 21:20:50
-        //String dateStr = "2019-11-25 11:07:50";
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
-        String dateStrTmp = dateFormat.format(date);
-        System.out.println(dateStrTmp);
-        try {
-            Date dateTmp = dateFormat.parse(dateStrTmp);
-            System.out.println(dateTmp);
-        } catch (ParseException e) {
-            e.printStackTrace();
+    /**
+     * @param ipLines: ip  address
+     * @return: return highestFrequency ip address
+     */
+    public static String highestFrequencyBySort(String[] ipLines) {
+        // Write your code here
+        String mostIP = null;
+        int mostIPCount = 0;
+        if (ipLines != null) {
+            if (ipLines.length == 1) {
+                return ipLines[0];
+            }
+            Arrays.sort(ipLines);
+            int tmpCount = 0;
+            String tmpIp = null;
+            int len = ipLines.length;
+            for (int i = 1; i < len; i++) {
+                if (ipLines[i].equals(tmpIp=ipLines[i-1])) {
+                    tmpCount++;
+                    if (i == len-1) {
+                        if (tmpCount > mostIPCount) {
+                            mostIP = tmpIp;
+                        }
+                    }
+                } else {
+                    if (tmpCount > mostIPCount) {
+                        mostIP = tmpIp;
+                        mostIPCount = tmpCount;
+                    }
+                    tmpCount = 1;
+                }
+            }
         }
+        return mostIP;
     }
+
+    public static String highestFrequencyByMap(String[] ipLines) {
+        // Write your code here
+        Map<String, Integer> ipMap = new HashMap();
+        String maxIP = null;
+        int maxIPCount = 0;
+        for (String ip : ipLines) {
+            Integer c = ipMap.get(ip);
+            if (c != null) {
+                int n = c + 1;
+                ipMap.put(ip, n);
+                if (maxIPCount < n) {
+                    maxIPCount = n;
+                    maxIP = ip;
+                }
+            } else {
+                ipMap.put(ip, 1);
+            }
+        }
+        return maxIP;
+    }
+
 }
