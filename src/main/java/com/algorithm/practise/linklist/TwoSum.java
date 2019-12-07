@@ -17,8 +17,7 @@ public class TwoSum {
             int x = (nxt1 != null) ? nxt1.val : 0;
             int y = (nxt2 != null) ? nxt2.val : 0;
             int sum = x + y + carry;
-            int val = sum < 10 ? sum : sum % 10;
-            cur.next = new ListNode(val);
+            cur.next = new ListNode(sum % 10);
             cur = cur.next;
             carry = sum / 10;
 
@@ -35,6 +34,7 @@ public class TwoSum {
         //[2,4,3]
         //[5,6,4]
         //->[7,0,8]
+        System.out.println(11 % 10);
         ListNode l1 = new ListNode(2);
         l1.next=new ListNode(4);
         l1.next.next=new ListNode(3);
