@@ -11,6 +11,7 @@ public class TwoSum {
         ListNode tmp = new ListNode(0);
         ListNode nxt1 = l1;
         ListNode nxt2 = l2;
+        //关键点
         ListNode cur = tmp;
         int carry = 0;
         while (nxt1 != null || nxt2 != null) {
@@ -18,12 +19,14 @@ public class TwoSum {
             int y = (nxt2 != null) ? nxt2.val : 0;
             int sum = x + y + carry;
             cur.next = new ListNode(sum % 10);
+            //容易出错点
             cur = cur.next;
             carry = sum / 10;
 
             if(nxt1 != null){nxt1 = nxt1.next;}
             if(nxt2 != null){nxt2 = nxt2.next;}
         }
+        //容易遗漏点
         if (carry > 0) {
             cur.next = new ListNode(carry);
         }
