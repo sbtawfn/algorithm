@@ -1,4 +1,4 @@
-package com.algorithm.practise.search;
+package com.algorithm.practise.array;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,7 @@ import java.util.Map;
 /**
  * 两数之和.
  * https://leetcode-cn.com/problems/two-sum/submissions/
+ * @author lichangwei
  */
 public class TwoSum {
     /**
@@ -29,7 +30,6 @@ public class TwoSum {
      * For.
      */
     public int[] twoSumFor(int[] nums, int target) {
-        Map<Integer,Integer> index = new HashMap();
         for (int i = 0; i < nums.length; i++) {
             int tmp = target - nums[i];
             for (int j = i+1; j < nums.length; j++) {

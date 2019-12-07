@@ -1,4 +1,4 @@
-package com.algorithm.practise.search;
+package com.algorithm.practise.array;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -7,8 +7,9 @@ import java.util.Map;
 /**
  * 查找出现次数最多的IP.
  * https://www.lintcode.com/problem/highest-frequency-ip/description
+ * @author lichangwei
  */
-public class FindMostIP {
+public class FindMostIp {
 
     /**
      * @param ipLines: ip  address
